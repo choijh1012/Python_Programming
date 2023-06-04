@@ -4,16 +4,18 @@
 
 import figure
 
+myline = figure.line(10, 20)
 
-myline = figure.line(10)
+width, height = myline.get_length()
+try:
+    rectangle = figure.line.area_rectangle(width, height)
+    print(rectangle)
 
-square = myline.area_square(myline.get_length())
-print(square)
+    ellipse = figure.line.area_ellipse(width, height)
+    print(ellipse)
 
-myline.set_length(20)
-regular_triangle = myline.area_regular_triangle(myline.get_length())
-print(regular_triangle)
+    regular_triangle = figure.line.area_right_triangle(width, height)
+    print(regular_triangle)
 
-myline.set_length(30)
-circle = myline.area_circle(myline.get_length())
-print(circle)
+except ValueError:
+    print("please input positive number for width and height")
